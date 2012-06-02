@@ -18,7 +18,7 @@
            d.getElementsByTagName('head')[0].appendChild(js);
          }(document));
       <% end %>
-    <div class="fb-login-button">Login with Facebook</div>
+    <div class="fb-login-button" data-redirect-uri="http://projectsaakshar.org">Login with Facebook</div>
 	<%= form_tag login_path do %>
 		<%= label_tag :email %>
 		<%= text_field_tag :email %>
