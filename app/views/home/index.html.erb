@@ -1,6 +1,24 @@
 <% if logged_in? %>
 	<%= link_to "Logout", logout_path %>
 <% else %>
+	 <%= javascript_tag do %>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '234710419965193',
+            status     : true, 
+            cookie     : true,
+            xfbml      : true,
+            oauth      : true,
+          });
+        };
+        (function(d){
+           var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           d.getElementsByTagName('head')[0].appendChild(js);
+         }(document));
+      <% end %>
+    <div class="fb-login-button">Login with Facebook</div>
 	<%= form_tag login_path do %>
 		<%= label_tag :email %>
 		<%= text_field_tag :email %>
